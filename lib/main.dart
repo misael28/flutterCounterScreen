@@ -14,23 +14,38 @@ class CounterScreen extends StatefulWidget {
 }
 
 class _CounterScreenState extends State<CounterScreen> {
+  var resultado = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Meu contador"),
         centerTitle: true,
-        leading: Container(
-          color: Colors.white
-        ),
       ),
-      body: Container(
-        color: Colors.white,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+
+        children: [
+          Center(
+            child: 
+            Text('Botão pressionado: ', 
+            style: TextStyle(
+            fontSize: 24
+          ),
+          ),
+          ),
+          Center(child: Text('$resultado', style: TextStyle(fontSize: 30),))
+        ],
       ),
-      bottomNavigationBar: Container(
-        height: 100,
-        color: Colors.red
-      ),  
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('Botao pressionado');
+          setState((){
+            resultado += 1;
+          });
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
