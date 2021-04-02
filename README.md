@@ -2,6 +2,7 @@
 
 A simple Flutter project that counts numbers while a button is pressed. Kind of my second flutter project!
 
+Please take a look at the lib/main.dart file!
 ## Getting Started
 
 This project is a starting point for a Flutter application.
