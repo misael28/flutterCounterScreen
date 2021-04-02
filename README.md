@@ -1,6 +1,6 @@
-# contador
+# My own Counter Screen
 
-A new Flutter project.
+A simple Flutter project that counts numbers while a button is pressed. Kind of my second flutter project!
 
 ## Getting Started
 
