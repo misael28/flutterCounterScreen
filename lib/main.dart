@@ -41,30 +41,30 @@ class _CounterScreenState extends State<CounterScreen> {
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          FloatingActionButton(
-            onPressed: () {
-              print('Botao pressionado');
-              setState((){
-                resultado += 1;
-              });
-            },
-            child: Icon(Icons.add),
-      ),
-        FloatingActionButton(
-            onPressed: () {
-              print('Botao pressionado');
-              setState((){
-                if(resultado<=0){
-                  resultado = 0;
-                }else {
-                  resultado --;
-                } 
-              });
-            },
-            child: Icon(Icons.remove),
-      )
+      OperationFloatingActionButton(Icon(Icons.remove), (){
+          if(resultado<=0){
+            resultado = 0;
+          }else {
+            resultado --;
+          }
+      }),
+        OperationFloatingActionButton(Icon(Icons.add), (){
+            resultado ++;
+      })
         ],
       )
     );
+  }
+}
+
+class OperationFloatingActionButton extends StatelessWidget {
+  final Function func;
+  final Widget icon;
+
+  OperationFloatingActionButton(this.icon, this.func, {Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(onPressed: func, child: icon);
   }
 }
