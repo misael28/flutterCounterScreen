@@ -15,6 +15,18 @@ class CounterScreen extends StatefulWidget {
 
 class _CounterScreenState extends State<CounterScreen> {
   var resultado = 0;
+  void _operation(String operation){
+    int novoResultado = 0;
+    if(operation == 'add'){
+      novoResultado = resultado+1;
+    }else if(operation == 'remove'){
+      novoResultado = resultado-1;
+    }
+
+    setState((){
+      resultado = novoResultado;
+    });
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +54,10 @@ class _CounterScreenState extends State<CounterScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
       OperationFloatingActionButton(Icon(Icons.remove), (){
-          if(resultado<=0){
-            resultado = 0;
-          }else {
-            resultado --;
-          }
+          _operation('remove');
       }),
         OperationFloatingActionButton(Icon(Icons.add), (){
-            resultado ++;
+          _operation('add');
       })
         ],
       )
